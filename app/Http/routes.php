@@ -11,4 +11,11 @@
 |
 */
 
-Route::get('/','Views\IndexViewController@IndexView');
+Route::any('/','Views\IndexViewController@IndexView');
+Route::get('/{page}','Views\IndexViewController@IndexView');
+
+Route::group(['prefix' => 'user'], function () {
+	Route::get('login',function(){
+		return view('test_login');
+	});
+});
